@@ -156,33 +156,6 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            {/* Search */}
-            <div className="relative hidden lg:block">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="w-4 h-4 text-gray-400" />
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch(e as any)}
-                placeholder="搜索"
-                className="block w-48 focus:w-64 transition-all duration-300 pl-10 pr-12 py-1.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-gray-50 dark:bg-gray-800 focus:ring-primary focus:border-primary placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white"
-              />
-              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                <span className="text-gray-400 text-xs border border-gray-200 dark:border-gray-600 rounded px-1.5 py-0.5">⌘ K</span>
-              </div>
-            </div>
-
-            {/* Submit Button */}
-            <Link
-              href="/submit"
-              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg shadow-purple-500/20 hover:from-blue-700 hover:to-purple-700 transition-all hover:scale-105 active:scale-95"
-            >
-              <Zap className="w-4 h-4 fill-current" />
-              提交工具
-            </Link>
-
             {/* Dark Mode Toggle */}
             <button
               className="p-2 text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"

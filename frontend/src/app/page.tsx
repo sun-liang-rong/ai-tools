@@ -68,8 +68,8 @@ export default async function HomePage() {
         {/* Quick Category Buttons */}
         <div className="mt-12 flex justify-center gap-4 flex-wrap max-w-5xl mx-auto px-4">
           {[
-            { icon: Bot, label: 'AI 对话', color: 'text-blue-500', slug: 'ai-dialog' },
-            { icon: Wand2, label: 'AI 绘画', color: 'text-purple-500', slug: 'ai-drawing' },
+            { icon: Bot, label: 'AI 对话', color: 'text-blue-500', slug: 'ai-chat' },
+            { icon: Wand2, label: 'AI 图片', color: 'text-purple-500', slug: 'ai-image' },
             { icon: Cpu, label: 'AI 编程', color: 'text-indigo-500', slug: 'ai-coding' },
             { icon: Edit3, label: 'AI 写作', color: 'text-pink-500', slug: 'ai-writing' },
           ].map((item) => (

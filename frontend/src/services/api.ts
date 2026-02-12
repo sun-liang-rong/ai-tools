@@ -67,7 +67,7 @@ export const homeApi = {
     try {
       const {data} = await api.get('/tools/count')
       console.log(data, 'tools count-------')
-      return {data: data?.data?.data || 0}
+      return {data: data?.data || 0}
     } catch (error) {
       console.warn('API 请求失败，使用假数据:1111', error)
       return {data: 0}
@@ -84,8 +84,8 @@ export const toolApi = {
         tools = tools.filter(t => t.category_id === params.category)
       }
       
-      if (params.is_recommended) {
-        tools = tools.filter(t => t.is_recommended)
+      if (params.is_recommend) {
+        tools = tools.filter(t => t.is_recommend)
       }
       
       if (params.free) {

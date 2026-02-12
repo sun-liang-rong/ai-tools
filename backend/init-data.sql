@@ -105,7 +105,13 @@ INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`,
 
 ('D-ID', 'd-id', '/logos/did.png', 'https://www.d-id.com', 'AI数字人视频生成，照片说话工具', '<h2>D-ID介绍</h2><p>D-ID是AI数字人视频生成平台，可以让照片中的人物说话，生成逼真的数字人视频。</p>', 4, 0, 1, 0, 1, 0, 1, 9, 'D-ID - AI照片说话', 'D-ID是AI数字人视频生成工具'),
 
-('Vidu', 'vidu', '/logos/vidu.png', 'https://www.vidu.io', '国产AI视频生成工具，生数科技出品', '<h2>Vidu介绍</h2><p>Vidu是生数科技推出的AI视频生成工具，在视频一致性和质量方面表现出色。</p>', 4, 0, 1, 0, 1, 1, 1, 10, 'Vidu - 国产AI视频生成', 'Vidu是生数科技推出的AI视频生成工具');
+('Vidu', 'vidu', '/logos/vidu.png', 'https://www.vidu.io', '国产AI视频生成工具，生数科技出品', '<h2>Vidu介绍</h2><p>Vidu是生数科技推出的AI视频生成工具，在视频一致性和质量方面表现出色。</p>', 4, 0, 1, 0, 1, 1, 1, 10, 'Vidu - 国产AI视频生成', 'Vidu是生数科技推出的AI视频生成工具'),
+
+('Stable Video Diffusion', 'stable-video-diffusion', '/logos/svd.png', 'https://stability.ai', 'Stability AI开源的视频生成模型', '<h2>Stable Video Diffusion介绍</h2><p>Stable Video Diffusion是Stability AI推出的开源视频生成模型，支持文生视频和图生视频。</p>', 4, 1, 0, 1, 1, 0, 1, 11, 'Stable Video Diffusion - 开源视频生成', 'Stable Video Diffusion是Stability AI的开源视频生成模型'),
+
+('Haiper', 'haiper', '/logos/haiper.png', 'https://haiper.ai', '新一代AI视频生成平台', '<h2>Haiper介绍</h2><p>Haiper是新一代AI视频生成平台，提供高质量视频生成和编辑功能。</p>', 4, 1, 0, 0, 0, 0, 1, 12, 'Haiper - AI视频生成', 'Haiper是新一代AI视频生成平台'),
+  
+('Colossyan', 'colossyan', '/logos/colossyan.png', 'https://colossyan.com', '企业级AI视频生成，专业数字人', '<h2>Colossyan介绍</h2><p>Colossyan是企业级AI视频生成平台，提供专业数字人视频制作，适合企业培训和营销。</p>', 4, 0, 0, 0, 1, 0, 1, 13, 'Colossyan - 企业AI视频', 'Colossyan是企业级AI视频生成平台');
 
 INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`, `category_id`, `is_free`, `is_chinese`, `is_open_source`, `has_api`, `is_recommend`, `status`, `sort`, `seo_title`, `seo_description`) VALUES
 
@@ -127,7 +133,17 @@ INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`,
 
 ('Lovo.ai', 'lovo-ai', '/logos/lovo.png', 'https://lovo.ai', 'AI语音生成平台，500+声音选择', '<h2>Lovo.ai介绍</h2><p>Lovo.ai是AI语音生成平台，提供500多种语音选择，支持100多种语言。</p>', 5, 0, 1, 0, 1, 0, 1, 9, 'Lovo.ai - AI语音生成', 'Lovo.ai是多语言AI语音生成平台'),
 
-('Resemble AI', 'resemble-ai', '/logos/resemble.png', 'https://www.resemble.ai', 'AI声音克隆和语音合成平台', '<h2>Resemble AI介绍</h2><p>Resemble AI是专业的AI声音克隆平台，可以克隆任何人的声音并生成语音。</p>', 5, 0, 0, 0, 1, 0, 1, 10, 'Resemble AI - AI声音克隆', 'Resemble AI是专业的AI声音克隆平台');
+('Resemble AI', 'resemble-ai', '/logos/resemble.png', 'https://www.resemble.ai', 'AI声音克隆和语音合成平台', '<h2>Resemble AI介绍</h2><p>Resemble AI是专业的AI声音克隆平台，可以克隆任何人的声音并生成语音。</p>', 5, 0, 0, 0, 1, 0, 1, 10, 'Resemble AI - AI声音克隆', 'Resemble AI是专业的AI声音克隆平台'),
+
+('VALL-E', 'vall-e', '/logos/valle.png', 'https://github.com/microsoft/unilm/tree/master/tts', '微软AI语音合成模型', '<h2>VALL-E介绍</h2><p>VALL-E是微软推出的AI语音合成模型，仅需3秒音频即可克隆声音。</p>', 5, 1, 0, 1, 1, 0, 1, 11, 'VALL-E - 微软语音合成', 'VALL-E是微软的AI语音合成模型'),
+
+('Play.ht', 'playht', '/logos/playht.png', 'https://play.ht', 'AI语音生成和文本转语音平台', '<h2>Play.ht介绍</h2><p>Play.ht是AI语音生成平台，提供超逼真的文本转语音服务，支持多种语言。</p>', 5, 0, 1, 0, 1, 0, 1, 12, 'Play.ht - AI语音生成', 'Play.ht是AI语音生成平台'),
+
+('Playground Music', 'playground-music', '/logos/pgmusic.png', 'https://playground.com/music', 'Playground AI音乐生成工具', '<h2>Playground Music介绍</h2><p>Playground Music是Playground推出的AI音乐生成工具，可以生成高质量的音乐作品。</p>', 5, 1, 0, 0, 0, 0, 1, 13, 'Playground Music - AI音乐生成', 'Playground Music是AI音乐生成工具'),
+
+('Stable Audio', 'stable-audio', '/logos/stableaudio.png', 'https://stability.ai', 'Stability AI音乐和音效生成工具', '<h2>Stable Audio介绍</h2><p>Stable Audio是Stability AI推出的音乐和音效生成工具，支持高质量音频生成。</p>', 5, 0, 0, 1, 1, 0, 1, 14, 'Stable Audio - AI音频生成', 'Stable Audio是Stability AI的音频生成工具'),
+
+('Bark', 'bark', '/logos/bark.png', 'https://github.com/suno-ai/bark', 'Suno开源的文本转语音模型', '<h2>Bark介绍</h2><p>Bark是Suno开源的文本转语音模型，支持多种声音效果和语言。</p>', 5, 1, 0, 1, 0, 0, 1, 15, 'Bark - 开源语音合成', 'Bark是Suno开源的语音合成模型');
 
 INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`, `category_id`, `is_free`, `is_chinese`, `is_open_source`, `has_api`, `is_recommend`, `status`, `sort`, `seo_title`, `seo_description`) VALUES
 
@@ -149,7 +165,15 @@ INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`,
 
 ('讯飞听见', 'iflyrec', '/logos/iflyrec.png', 'https://www.iflyrec.com', 'AI语音转文字工具，会议记录神器', '<h2>讯飞听见介绍</h2><p>讯飞听见是科大讯飞推出的AI语音转文字工具，支持会议录音、采访转录等场景。</p>', 6, 0, 1, 0, 1, 1, 1, 9, '讯飞听见 - AI语音转文字', '讯飞听见是专业的AI语音转文字工具'),
 
-('AiPPT', 'aippt', '/logos/aippt.png', 'https://www.aippt.cn', '国产AI PPT生成工具，中文支持好', '<h2>AiPPT介绍</h2><p>AiPPT是国产AI PPT生成工具，输入主题自动生成PPT，中文支持好。</p>', 6, 0, 1, 0, 0, 1, 1, 10, 'AiPPT - AI PPT生成', 'AiPPT是国产AI PPT自动生成工具');
+('AiPPT', 'aippt', '/logos/aippt.png', 'https://www.aippt.cn', '国产AI PPT生成工具，中文支持好', '<h2>AiPPT介绍</h2><p>AiPPT是国产AI PPT生成工具，输入主题自动生成PPT，中文支持好。</p>', 6, 0, 1, 0, 0, 1, 1, 10, 'AiPPT - AI PPT生成', 'AiPPT是国产AI PPT自动生成工具'),
+
+('Notion Calendar', 'notion-calendar', '/logos/notioncal.png', 'https://www.notion.so/product/calendar', 'Notion AI日历，智能日程管理', '<h2>Notion Calendar介绍</h2><p>Notion Calendar是Notion推出的AI日历工具，提供智能日程管理和时间安排功能。</p>', 6, 0, 1, 0, 0, 0, 1, 11, 'Notion Calendar - AI日历', 'Notion Calendar是Notion的AI日历工具'),
+
+('Otter.ai', 'otter-ai', '/logos/otter.png', 'https://otter.ai', 'AI会议记录工具，实时转录', '<h2>Otter.ai介绍</h2><p>Otter.ai是AI会议记录工具，提供实时语音转文字、会议摘要等功能。</p>', 6, 0, 1, 0, 0, 1, 1, 12, 'Otter.ai - AI会议记录', 'Otter.ai是AI会议记录和转录工具'),
+
+('SlidesAI', 'slidesai', '/logos/slidesai.png', 'https://www.slidesai.io', 'AI Google Slides生成工具', '<h2>SlidesAI介绍</h2><p>SlidesAI是Google Slides的AI插件，可以自动生成和美化演示文稿。</p>', 6, 0, 0, 0, 0, 0, 1, 13, 'SlidesAI - AI Slides', 'SlidesAI是Google Slides的AI生成工具'),
+
+('Perplexity', 'perplexity', '/logos/perplexity.png', 'https://www.perplexity.ai', 'AI搜索引擎，提供精准答案', '<h2>Perplexity介绍</h2><p>Perplexity是AI驱动的搜索引擎，提供精准的答案和引用来源，适合学术和办公研究。</p>', 6, 1, 1, 0, 1, 1, 1, 15, 'Perplexity - AI搜索', 'Perplexity是AI搜索引擎');
 
 INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`, `category_id`, `is_free`, `is_chinese`, `is_open_source`, `has_api`, `is_recommend`, `status`, `sort`, `seo_title`, `seo_description`) VALUES
 
@@ -171,7 +195,17 @@ INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`,
 
 ('文心快码', 'comate', '/logos/comate.png', 'https://comate.baidu.com', '百度AI编程助手，代码生成和补全', '<h2>文心快码介绍</h2><p>文心快码是百度推出的AI编程助手，提供代码生成、补全、解释等功能。</p>', 7, 1, 1, 0, 0, 0, 1, 9, '文心快码 - 百度AI编程', '文心快码是百度的免费AI编程助手'),
 
-('Phind', 'phind', '/logos/phind.png', 'https://www.phind.com', '面向开发者的AI搜索引擎和编程助手', '<h2>Phind介绍</h2><p>Phind是专为开发者设计的AI搜索引擎，能理解技术问题并提供代码解决方案。</p>', 7, 1, 1, 0, 0, 1, 1, 10, 'Phind - 开发者AI搜索', 'Phind是面向开发者的AI搜索和编程助手');
+('Phind', 'phind', '/logos/phind.png', 'https://www.phind.com', '面向开发者的AI搜索引擎和编程助手', '<h2>Phind介绍</h2><p>Phind是专为开发者设计的AI搜索引擎，能理解技术问题并提供代码解决方案。</p>', 7, 1, 1, 0, 0, 1, 1, 10, 'Phind - 开发者AI搜索', 'Phind是面向开发者的AI搜索和编程助手'),
+
+('Sourcegraph Cody', 'sourcegraph-cody', '/logos/cody.png', 'https://about.sourcegraph.com/cody', 'Sourcegraph AI编程助手，代码理解能力强', '<h2>Sourcegraph Cody介绍</h2><p>Sourcegraph Cody是Sourcegraph推出的AI编程助手，基于代码库深度理解提供智能建议。</p>', 7, 1, 1, 0, 1, 0, 1, 11, 'Sourcegraph Cody - AI编程', 'Sourcegraph Cody是AI编程助手'),
+
+('Aider', 'aider', '/logos/aider.png', 'https://aider.chat', 'AI配对编程工具，终端集成', '<h2>Aider介绍</h2><p>Aider是AI配对编程工具，深度集成到终端和Git工作流中。</p>', 7, 1, 0, 1, 0, 0, 1, 12, 'Aider - AI配对编程', 'Aider是AI配对编程工具'),
+
+('Continue', 'continue', '/logos/continue.png', 'https://continue.dev', 'VS Code AI编程助手，开源免费', '<h2>Continue介绍</h2><p>Continue是VS Code的开源AI编程助手插件，提供代码生成和解释功能。</p>', 7, 1, 0, 1, 0, 1, 1, 13, 'Continue - VS Code AI', 'Continue是VS Code的AI编程助手'),
+
+('CodiumAI', 'codiumai', '/logos/codiumai.png', 'https://www.codium.ai', 'AI测试代码生成工具', '<h2>CodiumAI介绍</h2><p>CodiumAI是AI测试代码生成工具，可以自动生成测试用例和测试代码。</p>', 7, 1, 1, 0, 1, 0, 1, 14, 'CodiumAI - AI测试生成', 'CodiumAI是AI测试代码生成工具'),
+
+('Roo Code', 'roo-code', '/logos/roocode.png', 'https://roocode.dev', '自主AI编程助手', '<h2>Roo Code介绍</h2><p>Roo Code是自主AI编程助手，可以独立完成复杂的编程任务。</p>', 7, 1, 0, 1, 0, 0, 1, 15, 'Roo Code - AI自主编程', 'Roo Code是自主AI编程助手');
 
 INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`, `category_id`, `is_free`, `is_chinese`, `is_open_source`, `has_api`, `is_recommend`, `status`, `sort`, `seo_title`, `seo_description`) VALUES
 
@@ -350,47 +384,7 @@ INSERT INTO `tools` (`name`, `slug`, `logo`, `website`, `short_desc`, `content`,
 
 ('Prompt Vibes', 'promptvibes', '/logos/promptvibes.png', 'https://www.promptvibes.com', 'ChatGPT提示词资源网站', '<h2>Prompt Vibes介绍</h2><p>Prompt Vibes提供分类整理的ChatGPT提示词资源，方便查找和使用。</p>', 15, 1, 1, 0, 0, 0, 1, 9, 'Prompt Vibes - Prompt资源', 'Prompt Vibes是ChatGPT提示词资源网站'),
 
-('提示工程指南', 'promptingguide', '/logos/promptingguide.png', 'https://www.promptingguide.ai/zh', '全面的Prompt Engineering教程', '<h2>提示工程指南介绍</h2><p>提示工程指南是全面的Prompt Engineering教程，涵盖各种提示技术和最佳实践。</p>', 15, 1, 1, 1, 0, 1, 1, 10, '提示工程指南 - Prompt教程', '提示工程指南是Prompt Engineering学习资源'),
-
-('Stable Video Diffusion', 'stable-video-diffusion', '/logos/svd.png', 'https://stability.ai', 'Stability AI开源的视频生成模型', '<h2>Stable Video Diffusion介绍</h2><p>Stable Video Diffusion是Stability AI推出的开源视频生成模型，支持文生视频和图生视频。</p>', 4, 1, 0, 1, 1, 0, 1, 11, 'Stable Video Diffusion - 开源视频生成', 'Stable Video Diffusion是Stability AI的开源视频生成模型'),
-
-('Haiper', 'haiper', '/logos/haiper.png', 'https://www.haiper.ai', '新兴的AI视频生成平台', '<h2>Haiper介绍</h2><p>Haiper是一款新兴的AI视频生成工具，支持高质量文生视频功能。</p>', 4, 1, 0, 0, 1, 0, 1, 12, 'Haiper - AI视频生成', 'Haiper是新兴的AI视频生成平台'),
-
-('Kling Pro', 'kling-pro', '/logos/klingpro.png', 'https://klingai.kuaishou.com', '可灵AI专业版，视频生成质量更高', '<h2>Kling Pro介绍</h2><p>Kling Pro是可灵AI的专业版本，提供更高视频生成质量和更长时间的视频输出。</p>', 4, 0, 1, 0, 1, 0, 1, 13, 'Kling Pro - 可灵专业版', 'Kling Pro是可灵AI的专业视频生成版本'),
-
-('Colossyan', 'colossyan', '/logos/colossyan.png', 'https://colossyan.com', 'AI虚拟视频生成平台', '<h2>Colossyan介绍</h2><p>Colossyan是AI虚拟视频生成平台，支持创建AI虚拟人视频用于培训和营销。</p>', 4, 0, 0, 0, 1, 0, 1, 14, 'Colossyan - 虚拟人视频', 'Colossyan是AI虚拟人视频生成平台'),
-
-('Pika 2.0', 'pika-2', '/logos/pika2.png', 'https://pika.art', 'Pika新一代视频生成模型', '<h2>Pika 2.0介绍</h2><p>Pika 2.0是Pika推出的新一代AI视频生成模型，视频质量和时长都有显著提升。</p>', 4, 1, 0, 0, 1, 0, 1, 15, 'Pika 2.0 - 新一代视频生成', 'Pika 2.0是新一代AI视频生成模型'),
-
-('VALL-E', 'vall-e', '/logos/vall-e.png', 'https://www.microsoft.com/en-us/research/project/vall-e', '微软开发的语音合成模型', '<h2>VALL-E介绍</h2><p>VALL-E是微软开发的语音合成模型，仅需3秒音频样本即可克隆声音。</p>', 5, 1, 0, 1, 0, 0, 1, 11, 'VALL-E - 微软语音合成', 'VALL-E是微软的开源语音合成模型'),
-
-('F5-TTS', 'f5-tts', '/logos/f5-tts.png', 'https://github.com/SWivid/F5-TTS', '开源语音克隆项目', '<h2>F5-TTS介绍</h2><p>F5-TTS是开源的语音克隆项目，支持快速声音克隆和高质量语音合成。</p>', 5, 1, 0, 1, 0, 0, 1, 12, 'F5-TTS - 开源语音克隆', 'F5-TTS是开源的语音克隆工具'),
-
-('Play.ht', 'playht', '/logos/playht.png', 'https://play.ht', 'AI文本转语音平台', '<h2>Play.ht介绍</h2><p>Play.ht是AI文本转语音平台，支持多种语言和声音克隆功能。</p>', 5, 0, 1, 0, 1, 0, 1, 13, 'Play.ht - 文本转语音', 'Play.ht是AI文本转语音平台'),
-
-('Speechify', 'speechify', '/logos/speechify.png', 'https://speechify.com', 'AI文字转语音工具', '<h2>Speechify介绍</h2><p>Speechify是一款流行的AI文字转语音工具，支持文档和网页朗读。</p>', 5, 0, 1, 0, 0, 1, 1, 14, 'Speechify - 文字转语音', 'Speechify是AI文字转语音工具'),
-
-('Kits.ai', 'kits-ai', '/logos/kits.png', 'https://www.kits.ai', 'AI声音克隆和变声平台', '<h2>Kits.ai介绍</h2><p>Kits.ai是AI声音克隆和变声平台，支持音乐人创作AI歌声。</p>', 5, 0, 0, 0, 1, 0, 1, 15, 'Kits.ai - 声音克隆平台', 'Kits.ai是AI声音克隆和变声平台'),
-
-('Otter.ai', 'otter-ai', '/logos/otter.png', 'https://otter.ai', 'AI会议记录和转写工具', '<h2>Otter.ai介绍</h2><p>Otter.ai是AI会议记录工具，自动转写会议内容并生成摘要。</p>', 6, 0, 1, 0, 1, 0, 1, 11, 'Otter.ai - 会议记录', 'Otter.ai是AI会议记录工具'),
-
-('Fireflies.ai', 'fireflies', '/logos/fireflies.png', 'https://fireflies.ai', 'AI会议助手和转录服务', '<h2>Fireflies.ai介绍</h2><p>Fireflies.ai是AI会议助手，自动记录、转录和分析会议内容。</p>', 6, 0, 1, 0, 1, 0, 1, 12, 'Fireflies.ai - 会议助手', 'Fireflies.ai是AI会议助手'),
-
-('Grammarly', 'grammarly', '/logos/grammarly.png', 'https://www.grammarly.com', 'AI写作助手和语法检查工具', '<h2>Grammarly介绍</h2><p>Grammarly是AI写作助手，提供语法检查、拼写纠正和写作建议。</p>', 6, 0, 1, 0, 1, 1, 1, 13, 'Grammarly - 写作助手', 'Grammarly是AI写作助手'),
-
-('Loom AI', 'loom-ai', '/logos/loom.png', 'https://www.loom.com', '带AI功能的视频录制和分享工具', '<h2>Loom AI介绍</h2><p>Loom AI是Loom推出的AI功能，自动生成视频标题、摘要和章节。</p>', 6, 0, 1, 0, 0, 0, 1, 14, 'Loom AI - 视频录制', 'Loom AI是带AI功能的视频录制工具'),
-
-('Perplexity AI', 'perplexity', '/logos/perplexity.png', 'https://www.perplexity.ai', 'AI驱动的智能搜索引擎', '<h2>Perplexity AI介绍</h2><p>Perplexity AI是AI搜索引擎，提供准确、可信的搜索结果和引用来源。</p>', 6, 1, 1, 0, 1, 1, 1, 15, 'Perplexity AI - AI搜索引擎', 'Perplexity AI是AI驱动的智能搜索引擎'),
-
-('Sourcegraph Cody', 'sourcegraph-cody', '/logos/sourcegraph.png', 'https://about.sourcegraph.com/cody', 'AI代码助手，支持代码库理解', '<h2>Sourcegraph Cody介绍</h2><p>Sourcegraph Cody是AI代码助手，能理解整个代码库并提供智能建议。</p>', 7, 0, 1, 0, 1, 0, 1, 11, 'Sourcegraph Cody - 代码助手', 'Sourcegraph Cody是AI代码助手'),
-
-('Bito', 'bito', '/logos/bito.png', 'https://bito.ai', 'AI代码助手，集成IDE', '<h2>Bito介绍</h2><p>Bito是AI代码助手，集成到IDE中，提供代码生成和优化建议。</p>', 7, 0, 1, 0, 1, 0, 1, 12, 'Bito - AI代码助手', 'Bito是集成IDE的AI代码助手'),
-
-('Amazon CodeGuru', 'codeguru', '/logos/codeguru.png', 'https://aws.amazon.com/codeguru', 'AWS代码审查和优化工具', '<h2>Amazon CodeGuru介绍</h2><p>Amazon CodeGuru是AWS的代码审查工具，使用机器学习提供代码优化建议。</p>', 7, 0, 1, 0, 1, 0, 1, 13, 'Amazon CodeGuru - 代码审查', 'Amazon CodeGuru是AWS代码审查工具'),
-
-('Codacy', 'codacy', '/logos/codacy.png', 'https://www.codacy.com', '自动化代码质量分析平台', '<h2>Codacy介绍</h2><p>Codacy是自动化代码质量分析平台，支持多种编程语言的代码检查。</p>', 7, 0, 1, 0, 1, 0, 1, 14, 'Codacy - 代码质量分析', 'Codacy是自动化代码质量分析平台'),
-
-('DeepCode', 'deepcode', '/logos/deepcode.png', 'https://www.deepcode.ai', 'AI驱动的代码静态分析工具', '<h2>DeepCode介绍</h2><p>DeepCode是AI驱动的代码静态分析工具，自动发现代码中的Bug和安全漏洞。</p>', 7, 0, 1, 0, 1, 0, 1, 15, 'DeepCode - 代码分析', 'DeepCode是AI代码静态分析工具');
+('提示工程指南', 'promptingguide', '/logos/promptingguide.png', 'https://www.promptingguide.ai/zh', '全面的Prompt Engineering教程', '<h2>提示工程指南介绍</h2><p>提示工程指南是全面的Prompt Engineering教程，涵盖各种提示技术和最佳实践。</p>', 15, 1, 1, 1, 0, 1, 1, 10, '提示工程指南 - Prompt教程', '提示工程指南是Prompt Engineering学习资源');
 
 
 -- 直接更新logo字段，使用API自动获取图标
