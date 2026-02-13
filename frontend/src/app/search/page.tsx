@@ -1,152 +1,52 @@
-'use client'
+import { Metadata } from 'next'
+import SearchForm from '@/components/search/SearchForm'
+import ResultsContainer from '@/components/search/ResultsContainer'
+import { Suspense } from 'react'
 
-import { useState, useEffect } from 'react'
-import { searchApi, toolApi } from '@/services/api'
-import ToolCard from '@/components/ToolCard'
-import Pagination from '@/components/Pagination'
-import { Search } from 'lucide-react'
-import { Tool } from '@/types/tool'
-import { useSearchParams, useRouter } from 'next/navigation'
+interface SearchPageProps {
+  searchParams: {
+    q?: string
+    tab?: string
+  }
+}
 
-const TABS = [
-  { id: 'all', name: '全部' },
-  { id: 'website', name: '网站' },
-  { id: 'software', name: '软件' },
-  { id: 'article', name: '文章' },
-]
+export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
+  const query = searchParams.q || ''
 
-export default function SearchPage() {
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const query = searchParams.get('q') || ''
-  
-  const [activeTab, setActiveTab] = useState('all')
-  const [searchQuery, setSearchQuery] = useState(query)
-  const [results, setResults] = useState<Tool[]>([])
-  const [loading, setLoading] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [total, setTotal] = useState(0)
-  const pageSize = 12
-
-  const fetchResults = async (q: string, page: number = 1, tab: string = activeTab) => {
-    if (!q) return
-    setLoading(true)
-    try {
-      const { data, total } = await searchApi.search({ q, page, pageSize, tab })
-      setResults(data || [])
-      setTotal(total || 0)
-    } catch (error) {
-      console.error('Search failed:', error)
-    } finally {
-      setLoading(false)
+  if (query) {
+    return {
+      title: `"${query}" 的搜索结果 - AI工具库`,
+      description: `搜索"${query}"相关的AI工具、软件和文章。发现最新的人工智能工具，提升工作效率。`,
+      openGraph: {
+        title: `"${query}" 的搜索结果 - AI工具库`,
+        description: `搜索"${query}"相关的AI工具、软件和文章`,
+        type: 'website',
+      },
     }
   }
 
-  useEffect(() => {
-    if (query) {
-      setSearchQuery(query)
-      setCurrentPage(1)
-      fetchResults(query, 1, activeTab)
-    }
-  }, [query, activeTab])
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-    fetchResults(query, page, activeTab)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  return {
+    title: '搜索 AI 工具 - AI工具库',
+    description: '搜索AI工具、软件和文章，发现最新的人工智能工具，提升工作效率。',
+    openGraph: {
+      title: '搜索 AI 工具 - AI工具库',
+      description: '搜索AI工具、软件和文章',
+      type: 'website',
+    },
   }
+}
 
-  const handleTabChange = (tabId: string) => {
-    setActiveTab(tabId)
-    setCurrentPage(1)
-    // useEffect 会处理 fetchResults
-  }
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!searchQuery.trim()) return
-    router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
-  }
+export default function SearchPage({ searchParams }: SearchPageProps) {
+  const query = searchParams.q || ''
+  const tab = searchParams.tab || 'all'
 
   return (
     <div className="min-h-screen bg-[#f3f4f6]/30 py-12">
       <div className="container-custom max-w-7xl">
-        {/* 顶部搜索框 */}
-        <div className="max-w-4xl mx-auto mt-8 mb-12">
-          <form onSubmit={handleSearch} className="relative group">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full h-14 pl-6 pr-16 text-lg bg-white border-none rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 transition-all"
-              placeholder="搜索 AI 工具..."
-            />
-            <button
-              type="submit"
-              className="absolute right-2 top-2 bottom-2 px-6 bg-[#333] text-white rounded-md hover:bg-black transition-colors"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-          </form>
-        </div>
-
-        {/* 分类 Tabs */}
-        <div className="flex items-center gap-4 mb-8">
-          {TABS.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => handleTabChange(tab.id)}
-              className={`relative px-6 py-2 rounded-md text-sm font-medium transition-all ${
-                activeTab === tab.id
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200'
-                  : 'bg-gray-200/50 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {tab.name}
-              {activeTab === tab.id && (
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-indigo-600" />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* 搜索结果标题 */}
-        <div className="mb-10">
-          <div className="flex items-center gap-2 text-gray-500 mb-6">
-            <Search className="w-4 h-4" />
-            <span>&quot;{query}&quot; 的搜索结果</span>
-          </div>
-          
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            {TABS.find(t => t.id === activeTab)?.name}
-          </h2>
-        </div>
-        {/* 结果列表 */}
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
-            {[1, 2, 3, 4, 5, 6].map(i => (
-              <div key={i} className="h-24 bg-white rounded-xl" />
-            ))}
-          </div>
-        ) : results.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {results.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200">
-            <p className="text-gray-400">未找到相关结果</p>
-          </div>
-        )}
-
-        {/* 分页组件 */}
-        <Pagination
-          currentPage={currentPage}
-          total={total}
-          pageSize={pageSize}
-          onPageChange={handlePageChange}
-        />
+        <Suspense fallback={<div>加载中...</div>}>
+          <SearchForm initialQuery={query} />
+        </Suspense>
+        {query && <ResultsContainer initialQuery={query} initialTab={tab} />}
       </div>
     </div>
   )
