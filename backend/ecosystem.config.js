@@ -4,7 +4,7 @@ module.exports = {
             name: 'ai-tools-backend',
             script: 'dist/main.js',
             cwd: '', // 项目路径
-            instances: 8, // 多核可以设置为 max
+            instances: 1, // 多核可以设置为 max
             exec_mode: 'fork', // 或 cluster
             watch: false,
             autorestart: true,
