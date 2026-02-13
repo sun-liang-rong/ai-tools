@@ -1,5 +1,4 @@
 'use client'
-
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Search, Menu, X, ChevronDown, Sparkles, Zap, Command, Sun, Moon } from 'lucide-react'

@@ -1,9 +1,13 @@
+const API_HOST =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3333/api'
+    : 'http://127.0.0.1:3333/api';
 const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/:path*",
-        destination: "http://localhost:3333/api/:path*",
+        source: '/api/:path*',
+        destination: `${API_HOST}/:path*`,
       },
       {
         source: '/img-proxy/:path*',
