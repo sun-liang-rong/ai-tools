@@ -114,7 +114,7 @@ export default function SearchPage() {
         <div className="mb-10">
           <div className="flex items-center gap-2 text-gray-500 mb-6">
             <Search className="w-4 h-4" />
-            <span>"{query}" 的搜索结果</span>
+            <span>&quot;{query}&quot; 的搜索结果</span>
           </div>
           
           <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
