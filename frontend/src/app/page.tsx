@@ -49,20 +49,6 @@ export default async function HomePage() {
           <div className="max-w-2xl mx-auto mb-8 relative">
             <HomeSearch />
           </div>
-
-          {/* Hot Search Tags */}
-          <div className="flex flex-wrap justify-center gap-2 text-sm">
-            <span className="text-gray-400 dark:text-gray-500 py-1">热门搜索:</span>
-            {['ChatGPT', 'Midjourney', 'Claude', 'Stable Diffusion', 'Copilot'].map((tag) => (
-              <Link
-                key={tag}
-                href={`/search?q=${encodeURIComponent(tag)}`}
-                className="px-3 py-1 bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 rounded-full text-gray-600 dark:text-gray-300 border border-gray-100 dark:border-gray-700 transition-all shadow-sm"
-              >
-                {tag}
-              </Link>
-            ))}
-          </div>
         </div>
 
         {/* Quick Category Buttons */}
