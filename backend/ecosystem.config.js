@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'nest-app',
+            name: 'ai-tools-backend',
             script: 'dist/main.js',
             cwd: 'backend', // 项目路径
             instances: 8, // 多核可以设置为 max
