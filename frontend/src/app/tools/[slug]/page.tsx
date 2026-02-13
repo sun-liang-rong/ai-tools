@@ -25,7 +25,7 @@ interface ToolPageProps {
 
 async function getToolData(slug: string) {
   try {
-    const { data: tool } = (await toolApi.getBySlug(slug)) as { data: Tool };
+    const { data: tool } = (await toolApi.getBySlug(slug, true)) as { data: Tool };
     const relatedTools = tool.category_id
       ? await toolApi.getRelated(tool.category_id, tool.id)
       : [];
@@ -68,7 +68,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-mesh">
+    <div className="min-h-screen bg-gradient-mesh mt-12">
       {/* Hero Section */}
       <section className="relative pt-8 pb-12 overflow-hidden">
         {/* Background decorations */}
@@ -123,25 +123,13 @@ export default async function ToolPage({ params }: ToolPageProps) {
                   <div className="relative aspect-[4/3] bg-slate-50 p-4">
                     <div className="w-full h-full bg-white rounded-lg shadow-sm overflow-hidden">
                       <Image
-                        src={tool.logo || "/placeholder-hero.png"}
+                        src={tool.logo || "/logo.png"}
                         alt={tool.name}
                         width={400}
                         height={300}
                         unoptimized
                         className="w-full h-full object-cover"
                       />
-                    </div>
-
-                    {/* Floating Action Buttons */}
-                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
-                      <button className="group flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg border border-slate-100 hover:shadow-xl transition-all">
-                        <ThumbsUp className="w-4 h-4 text-slate-600 group-hover:text-blue-500 transition-colors" />
-                        <span className="text-sm font-medium text-slate-700">{tool.likes || 0}</span>
-                      </button>
-                      <button className="group flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg border border-slate-100 hover:shadow-xl transition-all">
-                        <Heart className="w-4 h-4 text-slate-600 group-hover:text-red-500 transition-colors" />
-                        <span className="text-sm font-medium text-slate-700">收藏</span>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -153,18 +141,18 @@ export default async function ToolPage({ params }: ToolPageProps) {
               <div className="space-y-6">
                 {/* Tags */}
                 <div className="flex flex-wrap items-center gap-3">
-                  {tool.is_free && (
+                  {tool.is_free ? (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-600 text-sm font-medium rounded-full border border-green-100">
                       <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                       免费
                     </span>
-                  )}
-                  {tool.is_zh && (
+                  ) : null}
+                  {tool.is_zh ? (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 text-sm font-medium rounded-full border border-blue-100">
                       <Globe className="w-3.5 h-3.5" />
                       中文支持
                     </span>
-                  )}
+                  ) : null}
                   {tool.category && (
                     <Link
                       href={`/categories/${tool.category.slug}`}

@@ -90,9 +90,9 @@ export const toolApi = {
       }
     }
   },
-  getBySlug: async (slug: string) => {
+  getBySlug: async (slug: string, includeCategory?: boolean) => {
     try {
-      const { data } = await api.get(`/tools/slug/${slug}`)
+      const { data } = await api.get(`/tools/slug/${slug}`, {params: {includeCategory}})
       return {data: data.data || {}}
     } catch (error) {
       console.warn('API 请求失败，使用假数据:', error)

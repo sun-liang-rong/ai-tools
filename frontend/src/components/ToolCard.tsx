@@ -26,7 +26,7 @@ export default function ToolCard({ tool, featured = false }: ToolCardProps) {
           <div className="w-full aspect-square sm:aspect-auto sm:h-full bg-gradient-to-br from-purple-100 to-blue-100 dark:from-slate-700 dark:to-slate-800 rounded-lg flex items-center justify-center overflow-hidden">
             <Image
               unoptimized
-              src={tool.logo || '/placeholder-logo.png'}
+              src={tool.logo || '/logo.png'}
               alt={tool.name}
               width={120}
               height={120}
@@ -79,7 +79,7 @@ export default function ToolCard({ tool, featured = false }: ToolCardProps) {
         <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center flex-shrink-0 overflow-hidden">
           <Image
             unoptimized
-            src={tool.logo || '/placeholder-logo.png'}
+            src={tool.logo || '/logo.png'}
             alt={tool.name}
             width={48}
             height={48}

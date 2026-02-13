@@ -1,8 +1,7 @@
 import HomeSearch from "@/components/HomeSearch";
-import { Sparkles, FolderOpen, ChevronRight, Grid3X3, List } from "lucide-react";
+import { Sparkles, FolderOpen, ChevronRight } from "lucide-react";
 import { categoryApi } from "@/services/api";
-import ToolCard from "@/components/ToolCard";
-import { Tool } from "@/types/tool";
+import CategoryTools from "@/components/CategoryTools";
 import Link from "next/link";
 
 export default async function CategoryPage({
@@ -52,16 +51,6 @@ export default async function CategoryPage({
                 </p>
               </div>
             </div>
-
-            {/* View Toggle */}
-            <div className="flex items-center gap-2 p-1 bg-white rounded-xl border border-slate-200 shadow-sm">
-              <button className="p-2 rounded-lg bg-slate-100 text-slate-700">
-                <Grid3X3 className="w-4 h-4" />
-              </button>
-              <button className="p-2 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors">
-                <List className="w-4 h-4" />
-              </button>
-            </div>
           </div>
 
           {/* Search */}
@@ -74,20 +63,10 @@ export default async function CategoryPage({
       {/* Tools Grid */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {data?.tools && data.tools.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {data.tools.map((tool: Tool, index: number) => (
-                <div
-                  key={tool.id}
-                  className="animate-fade-in"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <ToolCard tool={tool} />
-                </div>
-              ))}
-            </div>
+          {data?.tools ? (
+            <CategoryTools tools={data.tools} />
           ) : (
-            <div className="text-center py-20">
+            <div className="text-center py-20 bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-gray-700">
               <div className="w-20 h-20 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center">
                 <Sparkles className="w-10 h-10 text-slate-300" />
               </div>

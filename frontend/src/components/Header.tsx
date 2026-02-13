@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Search, Menu, X, ChevronDown, Sparkles, Zap, Command, Sun, Moon } from 'lucide-react'
 import { categoryApi } from '@/services/api'
@@ -53,10 +54,15 @@ export default function Header() {
     <header className="fixed w-full top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
-              <Sparkles className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden">
+              <Image
+                src="/logo.png"
+                alt="AI导航"
+                width={32}
+                height={32}
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="font-bold text-xl tracking-tight text-gray-900 dark:text-gray-100">
               AI导航
@@ -130,21 +136,6 @@ export default function Header() {
             >
               AI应用集
             </Link>
-
-            <Link
-              href="/projects"
-              className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors py-2"
-            >
-              最新项目
-            </Link>
-
-            <Link
-              href="/resources"
-              className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors py-2"
-            >
-              教程资源
-            </Link>
-
             <Link
               href="/about"
               className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors py-2"
