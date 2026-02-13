@@ -3,7 +3,7 @@ import { categoryApi, toolApi } from '@/services/api'
 import { Category, Tool } from '@/types/tool'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3333/api'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-tools.abrdns.com/api'
 
   try {
     const [categories, toolsResponse] = await Promise.all([
