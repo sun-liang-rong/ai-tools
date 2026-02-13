@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { categoryApi, toolApi } from '@/services/api'
+import { Category, Tool } from '@/types/tool'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
@@ -19,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     ]
 
-    const categoryUrls: MetadataRoute.Sitemap = categories.map((category) => ({
+    const categoryUrls: MetadataRoute.Sitemap = categories.map((category: Category) => ({
       url: `${baseUrl}/category/${category.slug}`,
       lastModified: new Date(category.created_at),
       changeFrequency: 'weekly' as const,
@@ -27,8 +28,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
 
     const toolUrls: MetadataRoute.Sitemap = toolsResponse.data
-      .filter((tool) => tool.status === 'published')
-      .map((tool) => ({
+      .filter((tool: Tool) => tool.status === 'published')
+      .map((tool: Tool) => ({
         url: `${baseUrl}/tool/${tool.slug}`,
         lastModified: new Date(tool.created_at),
         changeFrequency: 'monthly' as const,

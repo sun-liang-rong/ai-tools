@@ -1,14 +1,12 @@
 import axios from 'axios'
-import type { Category, Tool, ToolListParams, ToolListResponse, SearchParams } from '@/types/tool'
-import { mockCategories, mockTools, getMockToolBySlug, getMockToolsByCategory, searchMockTools } from '@/lib/mock-data'
-import { getCppHeapStatistics } from 'node:v8'
+import type { Tool, ToolListParams } from '@/types/tool'
+
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3333/api',
   timeout: 10000,
 })
 
-const USE_MOCK_DATA = false
 
 export const categoryApi = {
   getAll: async () => {
@@ -77,43 +75,6 @@ export const homeApi = {
 
 export const toolApi = {
   getList: async (params: ToolListParams) => {
-    if (USE_MOCK_DATA) {
-      let tools = [...mockTools]
-      
-      if (params.category) {
-        tools = tools.filter(t => t.category_id === params.category)
-      }
-      
-      if (params.is_recommend) {
-        tools = tools.filter(t => t.is_recommend)
-      }
-      
-      if (params.free) {
-        tools = tools.filter(t => t.is_free)
-      }
-      
-      if (params.zh) {
-        tools = tools.filter(t => t.is_zh)
-      }
-      
-      if (params.sort === 'new') {
-        tools.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-      }
-      
-      if (params.limit) {
-        tools = tools.slice(0, params.limit)
-      }
-      
-      if (params.page && params.limit) {
-        const start = (params.page - 1) * params.limit
-        tools = tools.slice(start, start + params.limit)
-      }
-      
-      return { 
-        data: tools, 
-        total: tools.length,
-      }
-    }
     try {
       const { data } = await api.get('/tools', { params })
       console.log(data, 'dat--------')
@@ -124,8 +85,8 @@ export const toolApi = {
     } catch (error) {
       console.warn('API 请求失败，使用假数据:', error)
       return { 
-        data: mockTools, 
-        total: mockTools.length,
+        data: [], 
+        total: 0,
       }
     }
   },
