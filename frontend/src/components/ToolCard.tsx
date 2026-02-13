@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Sparkles, ArrowUpRight, ExternalLink } from 'lucide-react'
 import type { Tool } from '@/types/tool'
 import Image from 'next/image'
-
+import CopyToClipboard from '@/components/client/clipboard'
 interface ToolCardProps {
   tool: Tool
   featured?: boolean
@@ -12,8 +12,7 @@ export default function ToolCard({ tool, featured = false }: ToolCardProps) {
   // 如果是特色推荐卡片（横向布局）
   if (featured) {
     return (
-      <Link
-        href={`/tools/${tool.slug}`}
+      <div
         className="tool-card group relative bg-card-light dark:bg-card-dark rounded-xl p-5 border-2 border-primary/20 dark:border-primary/40 shadow-glow md:col-span-2 overflow-hidden flex flex-col sm:flex-row gap-6 h-full"
       >
         {/* 推荐标签 */}
@@ -56,18 +55,20 @@ export default function ToolCard({ tool, featured = false }: ToolCardProps) {
 
           {/* 操作按钮 */}
           <div className="flex gap-3">
-            <button className="flex-1 bg-primary hover:bg-primary-600 text-white text-sm font-medium py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+            <Link 
+              href={tool.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-primary hover:bg-primary-600 text-white text-sm font-medium py-2 rounded-lg transition-colors flex items-center justify-center gap-1"
+            >
               访问官网 <ExternalLink className="w-3 h-3" />
-            </button>
-            <button className="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300">
-              <span className="text-sm">分享</span>
-            </button>
+            </Link>
+            <CopyToClipboard website={tool.website} />
           </div>
         </div>
-      </Link>
+      </div>
     )
   }
-
   // 普通卡片（纵向布局）
   return (
     <Link

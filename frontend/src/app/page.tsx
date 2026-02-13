@@ -1,7 +1,7 @@
 import { getHomeCategories, homeApi } from '@/services/api'
 import ToolCard from '@/components/ToolCard'
 import HomeSearch from '@/components/HomeSearch'
-import { Sparkles, TrendingUp, ArrowRight, Bot, Wand2, Cpu, Edit3, Zap, Clock } from 'lucide-react'
+import { Sparkles, TrendingUp, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Tool } from '@/types/tool'
 
@@ -22,7 +22,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen hero-gradient">
       {/* Hero Section */}
-      <section className="pt-20 pb-32 px-4 text-center relative overflow-hidden">
+      <section className="pt-20 pb-20 px-4 text-center relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl -z-10" />
@@ -49,25 +49,6 @@ export default async function HomePage() {
           <div className="max-w-2xl mx-auto mb-8 relative">
             <HomeSearch />
           </div>
-        </div>
-
-        {/* Quick Category Buttons */}
-        <div className="mt-12 flex justify-center gap-4 flex-wrap max-w-5xl mx-auto px-4">
-          {[
-            { icon: Bot, label: 'AI 对话', color: 'text-blue-500', slug: 'ai-chat' },
-            { icon: Wand2, label: 'AI 图片', color: 'text-purple-500', slug: 'ai-image' },
-            { icon: Cpu, label: 'AI 编程', color: 'text-indigo-500', slug: 'ai-coding' },
-            { icon: Edit3, label: 'AI 写作', color: 'text-pink-500', slug: 'ai-writing' },
-          ].map((item) => (
-            <Link
-              key={item.label}
-              href={`/categories/${item.slug}`}
-              className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow-soft hover:shadow-lg transition-all text-gray-700 dark:text-gray-200"
-            >
-              <item.icon className={`w-4 h-4 ${item.color}`} />
-              <span className="font-medium">{item.label}</span>
-            </Link>
-          ))}
         </div>
       </section>
 

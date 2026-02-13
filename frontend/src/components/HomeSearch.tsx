@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Search, Sparkles, Command } from 'lucide-react'
+import { Search, Sparkles, Command, Bot, Wand2, Cpu, Edit3, Zap, Clock } from 'lucide-react'
+import Link from 'next/link'
 
 const SEARCH_ENGINES = [
   { id: 'site', name: '站内', url: '/search?q=' },
@@ -93,9 +94,12 @@ export default function HomeSearch() {
             ))}
           </div>
         </div>
+      </form>
 
+      {/* Quick Tags */}
+      <div className="relative flex flex-wrap justify-center gap-4 mt-4">
         {/* Keyboard hint */}
-        <div className="absolute -bottom-8 left-0 right-0 flex justify-center">
+        <div className="flex justify-center">
           <div className="flex items-center gap-2 text-xs text-slate-400">
             <span>按</span>
             <kbd className="flex items-center gap-0.5 px-1.5 py-0.5 bg-slate-100 rounded text-slate-500 font-sans">
@@ -105,11 +109,8 @@ export default function HomeSearch() {
             <span>快速搜索</span>
           </div>
         </div>
-      </form>
-
-      {/* Quick Tags */}
-      <div className="flex flex-wrap justify-center gap-2 mt-12">
-        {['ChatGPT', 'Midjourney', 'Claude', 'Stable Diffusion', 'Copilot'].map((tag) => (
+        <div className='flex flex-wrap justify-center gap-4'>
+          {['ChatGPT', 'Midjourney', 'Claude', 'Stable Diffusion', 'Copilot'].map((tag) => (
           <button
             key={tag}
             onClick={() => {
@@ -127,7 +128,26 @@ export default function HomeSearch() {
             {tag}
           </button>
         ))}
+        </div>
       </div>
+      {/* Quick Category Buttons */}
+        <div className="mt-4 flex justify-center gap-4 flex-wrap max-w-5xl mx-auto px-4">
+          {[
+            { icon: Bot, label: 'AI 对话', color: 'text-blue-500', slug: 'ai-chat' },
+            { icon: Wand2, label: 'AI 图片', color: 'text-purple-500', slug: 'ai-image' },
+            { icon: Cpu, label: 'AI 编程', color: 'text-indigo-500', slug: 'ai-coding' },
+            { icon: Edit3, label: 'AI 写作', color: 'text-pink-500', slug: 'ai-writing' },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              href={`/categories/${item.slug}`}
+              className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow-soft hover:shadow-lg transition-all text-gray-700 dark:text-gray-200"
+            >
+              <item.icon className={`w-4 h-4 ${item.color}`} />
+              <span className="font-medium">{item.label}</span>
+            </Link>
+          ))}
+        </div>
     </div>
   )
 }
