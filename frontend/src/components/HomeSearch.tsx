@@ -43,17 +43,20 @@ export default function HomeSearch() {
 
   return (
     <div className="w-full">
-      <form onSubmit={handleSearch} className="relative">
+      <form onSubmit={handleSearch} className="relative group">
+        {/* Glow Effect */}
+        <div className={`absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl opacity-20 group-hover:opacity-40 blur transition duration-500 ${isFocused ? 'opacity-60 blur-md' : ''}`}></div>
+        
         <div 
           className={`
-            relative flex items-center bg-white rounded-2xl shadow-lg 
+            relative flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 dark:border-white/10
             transition-all duration-300 overflow-hidden
-            ${isFocused ? 'shadow-xl ring-2 ring-blue-500/20' : 'hover:shadow-xl'}
+            ${isFocused ? 'shadow-2xl ring-1 ring-white/50' : 'hover:shadow-xl'}
           `}
         >
           {/* Search Icon */}
-          <div className="absolute left-5 pointer-events-none">
-            <Search className={`w-5 h-5 transition-colors ${isFocused ? 'text-blue-500' : 'text-slate-400'}`} />
+          <div className="absolute left-6 pointer-events-none">
+            <Search className={`w-6 h-6 transition-colors ${isFocused ? 'text-primary' : 'text-slate-400'}`} />
           </div>
 
           {/* Input */}
@@ -64,28 +67,28 @@ export default function HomeSearch() {
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder="搜索 AI 工具，例如：ChatGPT、Midjourney..."
+            placeholder="搜索 AI 工具（例如：ChatGPT、Midjourney）..."
             className="
-              w-full h-14 pl-14 pr-36
-              bg-transparent text-slate-900 placeholder:text-slate-400
-              text-base
+              w-full h-16 pl-16 pr-40
+              bg-transparent text-slate-900 dark:text-slate-100 placeholder:text-slate-400
+              text-lg font-medium
               focus:outline-none
             "
           />
 
           {/* Engine Selector */}
-          <div className="absolute right-3 flex items-center gap-1">
+          <div className="absolute right-3 flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
             {SEARCH_ENGINES.map((engine) => (
               <button
                 key={engine.id}
                 type="button"
                 onClick={() => setActiveEngine(engine.id)}
                 className={`
-                  px-3 py-1.5 text-xs font-medium rounded-lg
+                  px-3 py-1.5 text-xs font-semibold rounded-lg
                   transition-all duration-200
                   ${activeEngine === engine.id 
-                    ? 'bg-slate-900 text-white' 
-                    : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100'
+                    ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm' 
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
                   }
                 `}
               >

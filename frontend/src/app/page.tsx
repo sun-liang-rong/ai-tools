@@ -22,38 +22,52 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen hero-gradient">
       {/* Hero Section */}
-      <section className="pt-20 pb-20 px-4 text-center relative overflow-hidden">
-        {/* Background decorations */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl -z-10" />
+      <section className="relative pt-20 pb-12 overflow-hidden">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-primary/20 via-purple-500/10 to-transparent rounded-[100%] blur-[100px] opacity-50 dark:opacity-30 mix-blend-normal animate-pulse-slow" />
+          <div className="absolute -top-20 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] opacity-40 dark:opacity-20 mix-blend-screen" />
+          <div className="absolute top-40 -left-20 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] opacity-40 dark:opacity-20 mix-blend-screen" />
+          
+          {/* Grid Pattern Overlay */}
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20 dark:opacity-10" />
+        </div>
 
-        <div className="max-w-4xl mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto px-4 relative z-10 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm px-4 py-1.5 rounded-full border border-gray-200/50 dark:border-gray-700/50 mb-8 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 px-4 py-1.5 rounded-full shadow-sm mb-6 hover:scale-105 transition-transform cursor-default">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-xs font-medium text-gray-600 dark:text-gray-300 tracking-wide uppercase">
               已收录 {totalTools || 0}+ AI 工具
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
-            发现最佳 <br />
-            <span className="text-gradient">AI 工具导航</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight text-gray-900 dark:text-white">
+            <span className="block md:inline mb-2 md:mb-0">发现最佳</span>
+            <span className="hidden md:inline mx-3 text-gray-300 dark:text-gray-600 font-light">|</span>
+            <span className="relative inline-block whitespace-nowrap">
+              <span className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 blur-2xl opacity-20 dark:opacity-40"></span>
+              <span className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">AI 工具导航</span>
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto font-light">
+          
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
             精心筛选的人工智能工具集合，助你提升工作效率，激发创意灵感
           </p>
 
           {/* Search */}
-          <div className="max-w-2xl mx-auto mb-8 relative">
+          <div className="max-w-3xl mx-auto mb-10 relative z-20">
             <HomeSearch />
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 pb-20 relative z-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-20">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">

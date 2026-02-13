@@ -12,7 +12,6 @@ export const categoryApi = {
   getAll: async () => {
     try {
       const { data } = await api.get('/categories')
-      console.log(data, 'categories')
       return data.data
     } catch (error) {
       console.warn('API 请求失败，使用假数据:', error)

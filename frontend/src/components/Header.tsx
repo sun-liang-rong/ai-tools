@@ -51,20 +51,20 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+    <header className="fixed w-full top-0 z-50 bg-white/70 dark:bg-[#0B1120]/70 backdrop-blur-xl border-b border-white/20 dark:border-white/5 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg overflow-hidden">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-9 h-9 rounded-xl overflow-hidden shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow duration-300">
               <Image
                 src="/logo.png"
                 alt="AI导航"
-                width={32}
-                height={32}
-                className="w-full h-full object-contain"
+                width={36}
+                height={36}
+                className="w-full h-full object-contain bg-white"
               />
             </div>
-            <span className="font-bold text-xl tracking-tight text-gray-900 dark:text-gray-100">
+            <span className="font-bold text-xl tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">
               AI导航
             </span>
           </Link>
@@ -77,20 +77,20 @@ export default function Header() {
               onMouseEnter={() => setIsCategoriesOpen(true)}
               onMouseLeave={() => setIsCategoriesOpen(false)}
             >
-              <button className="flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors py-2">
+              <button className="flex items-center text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors py-2 group">
                 AI工具集
-                <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${isCategoriesOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 text-gray-400 group-hover:text-primary ${isCategoriesOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isCategoriesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[640px] animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[640px] animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden ring-1 ring-black/5">
                     <div className="p-6 grid grid-cols-3 gap-x-6 gap-y-4">
                       {categories.slice(0, 9).map((category) => (
                         <Link
                           key={category.id}
                           href={`/categories/${category.slug}`}
-                          className="flex flex-col gap-1 p-3 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-all group"
+                          className="flex flex-col gap-1 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all group"
                           onClick={() => setIsCategoriesOpen(false)}
                         >
                           <div className="flex items-center gap-2 mb-1">
